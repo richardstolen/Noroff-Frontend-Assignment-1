@@ -9,27 +9,23 @@
     <title>Document</title>
   </head>
   <body>
-    <nav class="navMenu">
-      <a href="index.html">Bank</a>
-      <a href="work.html">Work</a>
-      <a href="shop.html">Shop</a>
-      <div class="dot"></div>
-    </nav>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <p class="text">Work</p>
-    <br />
-    <p class="text">Wallet</p>
-    <br />
-    <div class="text" id="wallet"></div>
-    <br />
-    <button id="workButton">Work</button>
-    <button id="depositButton">Deposit</button>
+    <div class="flexbox-container">
+      <div class="flex-item" style="margin-bottom: 100px">
+        <nav class="navMenu">
+          <a href="index.html">Bank</a>
+          <a href="work.html">Work</a>
+          <a href="shop.html">Shop</a>
+          <div class="dot"></div>
+        </nav>
+      </div>
+
+      <div class="flex-item">
+        <div class="text">Wallet</div>
+        <div class="text" id="wallet"></div>
+      </div>
+
+      <button id="workButton" style="margin-top: 40px">Work</button>
+      <button id="depositButton">Deposit</button>
+    </div>
   </body>
 </html>

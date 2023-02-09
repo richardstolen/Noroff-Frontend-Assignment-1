@@ -9,26 +9,27 @@
     <title>Title</title>
   </head>
   <body>
-    <nav class="navMenu">
-      <a href="index.html">Bank</a>
-      <a href="work.html">Work</a>
-      <a href="shop.html">Shop</a>
-      <div class="dot"></div>
-    </nav>
+    <div class="flexbox-container">
+      <div class="flex-item" style="margin-bottom: 100px">
+        <nav class="navMenu">
+          <a href="index.html">Bank</a>
+          <a href="work.html">Work</a>
+          <a href="shop.html">Shop</a>
+          <div class="dot"></div>
+        </nav>
+      </div>
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <p class="text">Balance</p>
-    <br />
-    <div class="text" id="balance"></div>
+      <div class="flex-item">
+        <div class="text">Balance</div>
+        <div class="text" id="balance"></div>
+      </div>
 
-    <button id="getLoan">Get a loan</button>
-    <br />
-    <p class="text" id="loanText">Loan:</p>
-    <div class="text" id="loan"></div>
+      <div class="flex-item">
+        <div class="text" id="loanText">Loan</div>
+        <div class="text" id="loan"></div>
+      </div>
+
+      <button id="getLoan" style="margin-top: 40px">Get a loan</button>
+    </div>
   </body>
 </html>
