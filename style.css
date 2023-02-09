@@ -1,15 +1,35 @@
 .button {
-  position: relative;
   width: 100px;
   height: 30px;
 
   background: #d9d9d9;
-  border-radius: 15px;
+  border-radius: 6px;
 }
 
-.balance {
-  margin-left: 40%;
-  margin-top: 20%;
+.container {
+  font-family: arial;
+  font-size: 24px;
+  margin: 25px;
+  width: 350px;
+  height: 200px;
+  /* Setup */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.child {
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.center {
+  width: 50px;
+  height: 50px;
+  margin-top: 10%;
+  border: 1px solid #f6f4e6;
 }
 
 .text {
@@ -22,6 +42,7 @@
   width: 80px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  align-self: center;
 }
 
 /*
@@ -78,8 +99,8 @@ body {
 }
 
 .navMenu a:nth-child(1):hover ~ .dot {
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
+  -webkit-transform: translateX(25px);
+  transform: translateX(25px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
@@ -88,6 +109,13 @@ body {
 .navMenu a:nth-child(2):hover ~ .dot {
   -webkit-transform: translateX(110px);
   transform: translateX(110px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+.navMenu a:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(190px);
+  transform: translateX(190px);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   opacity: 1;
