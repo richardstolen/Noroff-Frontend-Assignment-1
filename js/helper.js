@@ -13,16 +13,27 @@ export function getBalance() {
 }
 
 export function addToBalance(num) {
-  let balance = parseInt(getBalance());
-  let newBalance = balance + parseInt(num);
+  let newBalance = parseInt(getBalance()) + parseInt(num);
 
   return sessionStorage.setItem("balance", newBalance);
+}
+export function setBalance(num) {
+  return sessionStorage.setItem("balance", parseInt(num));
 }
 
 // Loan methods
 
 export function getLoan() {
   return sessionStorage.getItem("loan");
+}
+
+export function loanExists() {
+  let loan = sessionStorage.getItem("loan");
+  if (loan == 0) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 export function addToLoan(num) {
@@ -33,12 +44,16 @@ export function addToLoan(num) {
 
 export function payLoan(num) {
   let loan = parseInt(getLoan());
+  let balance = parseInt(getBalance());
+  console.log(loan);
   let newLoan = 0;
-  if (loan - num > 0) {
-    newLoan = loan - parseInt(num);
+  if (num != null) {
+    newLoan = loan - num;
+  } else if (balance < loan) {
+    newLoan = loan - balance;
   } else {
-    let remainder = loan - num;
-    setWallet(remainder);
+    let newBalance = balance - loan;
+    setBalance(newBalance);
   }
   return sessionStorage.setItem("loan", newLoan);
 }
@@ -71,4 +86,15 @@ export function depositMoney() {
   let wallet = parseInt(getWallet());
   sessionStorage.setItem("wallet", 0);
   addToBalance(wallet);
+}
+
+// Format number to NOK
+export function format(num) {
+  let NOK = new Intl.NumberFormat("nb-NO", {
+    style: "currency",
+    currency: "NOK",
+    maximumFractionDigits: 0,
+    minimumFractionDigits: 0,
+  });
+  return NOK.format(num);
 }

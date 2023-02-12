@@ -9,12 +9,21 @@
     <title>Document</title>
   </head>
   <body>
-    <nav class="navMenu">
-      <a href="index.html">Bank</a>
-      <a href="work.html">Work</a>
-      <a href="shop.html">Shop</a>
-      <div class="dot"></div>
-    </nav>
-    <button id="">Click</button>
+    <div class="flexbox-container">
+      <div class="flex-item" style="margin-bottom: 100px">
+        <nav class="navMenu">
+          <a href="index.html">Bank</a>
+          <a href="work.html">Work</a>
+          <a href="shop.html"><active>Shop</active></a>
+          <div class="dot"></div>
+        </nav>
+      </div>
+      <div class="flex-column">
+        <label class="text" for="computers">Laptops</label>
+      </div>
+      <div class="flex-column">
+        <div class="flex-column" id="computers"></div>
+      </div>
+    </div>
   </body>
 </html>

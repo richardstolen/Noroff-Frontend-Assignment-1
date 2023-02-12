@@ -2,6 +2,7 @@ import {
   addToBalance,
   addToWallet,
   depositMoney,
+  format,
   getWallet,
 } from "./helper.js";
 
@@ -11,6 +12,11 @@ const depositButton = document.getElementById("depositButton");
 
 workButton.addEventListener("click", function () {
   work();
+});
+
+let NOK = new Intl.NumberFormat("nb-NO", {
+  style: "currency",
+  currency: "NOK",
 });
 
 depositButton.addEventListener("click", function () {
@@ -23,12 +29,11 @@ updateWallet();
 
 function updateWallet() {
   if (wallet != null) {
-    wallet.innerText = getWallet();
+    wallet.innerText = format(getWallet());
   }
 }
 
 function work() {
   addToWallet();
   updateWallet();
-  console.log(getWallet());
 }
