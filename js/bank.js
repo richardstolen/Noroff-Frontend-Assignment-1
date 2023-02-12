@@ -9,6 +9,8 @@ import {
   format,
 } from "./helper.js";
 
+import API from "./api-handler.js";
+
 const balance = document.getElementById("balance");
 const loan = document.getElementById("loan");
 const loanText = document.getElementById("loanText");
@@ -18,6 +20,7 @@ const buttonDiv = document.getElementById("buttons");
 
 if (getBalance() == null) {
   initializeStorage();
+  API.initializeShop();
 }
 updateBalanceAndLoan();
 
@@ -34,7 +37,6 @@ function updateBalanceAndLoan() {
     repayLoanButton.style.visibility = "visible";
     loan.innerText = format(getLoan());
   } else {
-    console.log("hidden");
     // If no loan hide text and repay loan button
     loan.style.display = "none";
     loanText.style.display = "none";

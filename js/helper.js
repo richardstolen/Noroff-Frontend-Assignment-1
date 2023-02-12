@@ -14,7 +14,11 @@ export function getBalance() {
 
 export function addToBalance(num) {
   let newBalance = parseInt(getBalance()) + parseInt(num);
+  return sessionStorage.setItem("balance", newBalance);
+}
 
+export function subtractFromBalance(num) {
+  let newBalance = parseInt(getBalance()) - parseInt(num);
   return sessionStorage.setItem("balance", newBalance);
 }
 export function setBalance(num) {
@@ -45,13 +49,16 @@ export function addToLoan(num) {
 export function payLoan(num) {
   let loan = parseInt(getLoan());
   let balance = parseInt(getBalance());
-  console.log(loan);
   let newLoan = 0;
   if (num != null) {
+    // Pay down loan when working
     newLoan = loan - num;
   } else if (balance < loan) {
+    // If balance is less than the loan, pay down all you have
     newLoan = loan - balance;
+    setBalance(0);
   } else {
+    // Pay down all of the loan (not changing newLoan from 0)
     let newBalance = balance - loan;
     setBalance(newBalance);
   }
@@ -86,6 +93,17 @@ export function depositMoney() {
   let wallet = parseInt(getWallet());
   sessionStorage.setItem("wallet", 0);
   addToBalance(wallet);
+}
+
+// Shop
+
+export function buyComputer(price, title) {
+  if (getBalance() < price) {
+    alert("You can't afford this computer!");
+  } else {
+    subtractFromBalance(price);
+    alert(`Congratulations, you just bought a ${title}`);
+  }
 }
 
 // Format number to NOK

@@ -31,9 +31,21 @@ async function getImage(id) {
   return result;
 }
 
+async function initializeShop() {
+  const computers = await getComputers();
+  const compImages = [];
+  for (const c of computers) {
+    compImages[c.id] = await API.getImage(c.id);
+  }
+
+  sessionStorage.setItem("computers", JSON.stringify(computers));
+  sessionStorage.setItem("images", JSON.stringify(compImages));
+}
+
 const API = {
   getComputers,
   getImage,
+  initializeShop,
 };
 
 export default API;
