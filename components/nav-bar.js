@@ -1,10 +1,14 @@
 export default class extends HTMLElement {
   #shadow;
   #cssfile = "../css/navbar.css";
+
+  /**
+   * Constructor for nav-bar.js
+   */
   constructor() {
     super();
 
-    this.#shadow = this.attachShadow({ mode: "open" });
+    this.#shadow = this.attachShadow({ mode: "closed" });
     this.#createLink();
     this.#createHTML();
   }
@@ -14,9 +18,6 @@ export default class extends HTMLElement {
    */
   #createLink() {
     const link = document.createElement("link");
-
-    //Use directory of script as directory of css file
-    //const path = import.meta.url.match(/.*\//)[0];
     link.href = this.#cssfile;
     link.rel = "stylesheet";
     link.type = "text/css";
@@ -24,15 +25,17 @@ export default class extends HTMLElement {
     return link;
   }
 
+  /**
+   * HTML for navigation bar
+   */
   #createHTML() {
     const wrapper = document.createElement("div");
-
     const content = `
-        <div class="flex-item" style="margin-bottom: 100px">
+        <div class="flex-item" style="margin-bottom: 120px">
             <nav class="navMenu">
-            <a href="index.html"> <active>Bank</active></a>
-            <a href="work.html">Work</a>
-            <a href="shop.html">Shop</a>
+            <a href="index.html" id="Bank">Bank</a>
+            <a href="work.html" id="Work">Work</a>
+            <a href="shop.html" id="Shop">Shop</a>
             <div class="dot"></div>
             </nav>
         </div>
@@ -40,6 +43,12 @@ export default class extends HTMLElement {
 
     wrapper.insertAdjacentHTML("beforeend", content);
     this.#shadow.appendChild(wrapper);
+
+    // Set active, highlights current page
+    const active = this.attributes.active.value;
+
+    const activeLink = this.#shadow.querySelector(`#${active}`);
+    activeLink.innerHTML = `<active>${active}</active>`;
 
     return wrapper;
   }
