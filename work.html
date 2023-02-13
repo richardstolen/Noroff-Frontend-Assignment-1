@@ -7,19 +7,12 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="#" />
     <script type="module" src="js/work.js"></script>
+    <script type="module" src="js/main.js"></script>
     <title>Document</title>
   </head>
   <body>
+    <nav-bar></nav-bar>
     <div class="flexbox-container">
-      <div class="flex-item" style="margin-bottom: 100px">
-        <nav class="navMenu">
-          <a href="index.html">Bank</a>
-          <a href="work.html"><active>Work</active></a>
-          <a href="shop.html">Shop</a>
-          <div class="dot"></div>
-        </nav>
-      </div>
-
       <div class="flex-item">
         <div class="text">Wallet</div>
         <div class="text" id="wallet"></div>
@@ -29,6 +22,8 @@
         <button class="button" id="workButton">Work</button>
         <button class="button" id="depositButton">Deposit</button>
       </div>
+
+      <button id="repayLoan" class="button">Repay loan</button>
     </div>
   </body>
 </html>

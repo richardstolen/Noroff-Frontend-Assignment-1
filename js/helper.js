@@ -48,19 +48,19 @@ export function addToLoan(num) {
 
 export function payLoan(num) {
   let loan = parseInt(getLoan());
-  let balance = parseInt(getBalance());
+  let wallet = parseInt(getWallet());
   let newLoan = 0;
   if (num != null) {
     // Pay down loan when working
     newLoan = loan - num;
-  } else if (balance < loan) {
-    // If balance is less than the loan, pay down all you have
-    newLoan = loan - balance;
-    setBalance(0);
+  } else if (wallet < loan) {
+    // If wallet is less than the loan, pay down all you have
+    newLoan = loan - wallet;
+    setWallet(0);
   } else {
     // Pay down all of the loan (not changing newLoan from 0)
-    let newBalance = balance - loan;
-    setBalance(newBalance);
+    let newWallet = wallet - loan;
+    setWallet(newWallet);
   }
   return sessionStorage.setItem("loan", newLoan);
 }

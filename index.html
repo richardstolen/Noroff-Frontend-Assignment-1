@@ -6,19 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="#" />
     <link rel="stylesheet" href="style.css" />
-    <script type="module" src="js/bank.js"></script>
+    <script type="module" src="./js/bank.js"></script>
+    <script type="module" src="./js/main.js"></script>
     <title>Title</title>
   </head>
   <body>
     <div class="flexbox-container">
-      <div class="flex-item" style="margin-bottom: 100px">
-        <nav class="navMenu">
-          <a href="index.html"> <active>Bank</active></a>
-          <a href="work.html">Work</a>
-          <a href="shop.html">Shop</a>
-          <div class="dot"></div>
-        </nav>
-      </div>
+      <nav-bar></nav-bar>
 
       <div class="flex-item">
         <div class="text">Balance</div>
@@ -34,7 +28,7 @@
         Get a loan
       </button>
 
-      <button id="repayLoan" class="button">Repay loan</button>
+      <!--<button id="repayLoan" class="button">Repay loan</button>-->
     </div>
   </body>
 </html>

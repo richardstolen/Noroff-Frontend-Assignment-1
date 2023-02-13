@@ -1,9 +1,15 @@
 import API from "./api-handler.js";
 import { buyComputer, format } from "./helper.js";
 
-const computers = JSON.parse(sessionStorage.getItem("computers"));
-const compImages = JSON.parse(sessionStorage.getItem("images"));
+let computers = JSON.parse(sessionStorage.getItem("computers"));
+let compImages = JSON.parse(sessionStorage.getItem("images"));
 
+if (computers === null) {
+  console.log("asdf");
+  await API.initializeShop();
+  computers = JSON.parse(sessionStorage.getItem("computers"));
+  compImages = JSON.parse(sessionStorage.getItem("images"));
+}
 for (const c of computers) {
   compImages[c.id] = JSON.parse(sessionStorage.getItem("images"));
 }

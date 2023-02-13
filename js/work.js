@@ -4,36 +4,43 @@ import {
   depositMoney,
   format,
   getWallet,
+  payLoan,
+  loanExists,
 } from "./helper.js";
 
 const wallet = document.getElementById("wallet");
 const workButton = document.getElementById("workButton");
 const depositButton = document.getElementById("depositButton");
+const repayLoanButton = document.getElementById("repayLoan");
+
+updatePage();
 
 workButton.addEventListener("click", function () {
   work();
 });
 
-let NOK = new Intl.NumberFormat("nb-NO", {
-  style: "currency",
-  currency: "NOK",
+repayLoanButton.addEventListener("click", () => {
+  payLoan();
+  updatePage();
 });
 
-depositButton.addEventListener("click", function () {
-  depositMoney();
-  updateWallet();
-  console.log(getWallet());
-});
-
-updateWallet();
-
-function updateWallet() {
+function updatePage() {
   if (wallet != null) {
     wallet.innerText = format(getWallet());
   }
+  if (loanExists()) {
+    repayLoanButton.style.visibility = "visible";
+  } else {
+    repayLoanButton.style.visibility = "hidden";
+  }
 }
+
+depositButton.addEventListener("click", function () {
+  depositMoney();
+  updatePage();
+});
 
 function work() {
   addToWallet();
-  updateWallet();
+  updatePage();
 }
