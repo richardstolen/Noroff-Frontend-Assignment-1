@@ -13,6 +13,7 @@
 }
 
 .flex-item {
+  flex-wrap: wrap;
   margin: 5px;
   display: flex;
   flex-direction: row;
@@ -24,6 +25,7 @@
 .flex-column {
   margin: 5px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   min-width: 300px;
@@ -40,14 +42,14 @@
 }
 .button {
   margin-bottom: 5px;
-  width: 95px;
-  height: 30px;
+  width: 105px;
+  height: 35px;
   background-color: #272727;
   border-radius: 6px;
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
   text-transform: uppercase;
-  font-weight: 50;
+  font-weight: 200;
   color: white;
   border: 2px solid white;
 }
@@ -59,7 +61,7 @@
 .text {
   color: #f6f4e6;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.5em;
   text-transform: uppercase;
   font-weight: 100;
   -webkit-transition: all 0.2s ease-in-out;
@@ -69,7 +71,7 @@
 .desc {
   color: #f6f4e6;
   text-decoration: none;
-  font-size: 0.6em;
+  font-size: 0.7em;
   text-transform: uppercase;
   font-weight: 100;
   -webkit-transition: all 0.2s ease-in-out;
@@ -82,7 +84,7 @@
 }
 
 img {
-  width: 120px;
+  width: 150px;
   height: auto;
 }
 
@@ -90,77 +92,7 @@ img {
  Nav bar imported from:https://codepen.io/WhisnuYs/pen/XWdpdGP
 */
 
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 body {
   background: #272727;
   font-family: "Montserrat", sans-serif;
-}
-
-.navMenu {
-  position: absolute;
-  top: 10%;
-  left: 51%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-.navMenu a {
-  color: #f6f4e6;
-  text-decoration: none;
-  font-size: 1.2em;
-  text-transform: uppercase;
-  font-weight: 400;
-  display: inline-block;
-  width: 80px;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.navMenu a active {
-  font-weight: 1000;
-}
-.navMenu a:hover {
-  color: #fddb3a;
-}
-
-.navMenu .dot {
-  width: 6px;
-  height: 6px;
-  background: #fddb3a;
-  border-radius: 50%;
-  opacity: 0;
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.navMenu a:nth-child(1):hover ~ .dot {
-  -webkit-transform: translateX(30px);
-  transform: translateX(30px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
-}
-
-.navMenu a:nth-child(2):hover ~ .dot {
-  -webkit-transform: translateX(115px);
-  transform: translateX(115px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
-}
-
-.navMenu a:nth-child(3):hover ~ .dot {
-  -webkit-transform: translateX(190px);
-  transform: translateX(190px);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  opacity: 1;
 }

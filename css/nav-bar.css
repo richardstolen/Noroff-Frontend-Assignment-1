@@ -1,0 +1,69 @@
+/*
+ Nav bar imported from:https://codepen.io/WhisnuYs/pen/XWdpdGP
+*/
+
+.navMenu {
+  margin: 20px;
+  min-width: 450px;
+  display: flex;
+  flex-shrink: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navMenu a {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase;
+  font-weight: 400;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a active {
+  font-weight: 1000;
+}
+.navMenu a:hover {
+  color: #fddb3a;
+}
+
+.navMenu .dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fddb3a;
+  border-radius: 50%;
+  opacity: 0;
+  top: 70px;
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu a:nth-child(1):hover ~ .dot {
+  -webkit-transform: translateX(45px);
+  transform: translateX(45px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(2):hover ~ .dot {
+  -webkit-transform: translateX(222px);
+  transform: translateX(222px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu a:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(400px);
+  transform: translateX(400px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}

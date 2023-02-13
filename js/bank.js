@@ -15,13 +15,14 @@ const balance = document.getElementById("balance");
 const loan = document.getElementById("loan");
 const loanText = document.getElementById("loanText");
 const getLoanButton = document.getElementById("getLoan");
-const repayLoanButton = document.getElementById("repayLoan");
+
 const buttonDiv = document.getElementById("buttons");
 
 if (getBalance() == null) {
   initializeStorage();
   API.initializeShop();
 }
+
 updateBalanceAndLoan();
 
 function updateBalanceAndLoan() {
@@ -34,22 +35,16 @@ function updateBalanceAndLoan() {
     // If there is a loan make loan text and button visible
     loan.style.display = "block";
     loanText.style.display = "block";
-    repayLoanButton.style.visibility = "visible";
+
     loan.innerText = format(getLoan());
   } else {
     // If no loan hide text and repay loan button
     loan.style.display = "none";
     loanText.style.display = "none";
-    repayLoanButton.style.visibility = "hidden";
   }
 }
 
 getLoanButton.addEventListener("click", addLoan);
-
-repayLoanButton.addEventListener("click", () => {
-  payLoan();
-  updateBalanceAndLoan();
-});
 
 function addLoan() {
   let amount = prompt("How much loan do you want?", "0");

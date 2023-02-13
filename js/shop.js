@@ -4,6 +4,12 @@ import { buyComputer, format } from "./helper.js";
 const computers = JSON.parse(sessionStorage.getItem("computers"));
 const compImages = JSON.parse(sessionStorage.getItem("images"));
 
+if (computers === null) {
+  await API.initializeShop();
+  computers = JSON.parse(sessionStorage.getItem("computers"));
+  compImages = JSON.parse(sessionStorage.getItem("images"));
+}
+
 for (const c of computers) {
   compImages[c.id] = JSON.parse(sessionStorage.getItem("images"));
 }
@@ -25,27 +31,27 @@ async function displayComputers() {
     // Description FLEX
     const descFlex = document.createElement("div");
     descFlex.setAttribute("class", "flex-column");
-    descFlex.style.width = "200px";
+    descFlex.style.width = "400px";
 
     /// Title
     const title = document.createElement("span");
     title.innerText = computer.title;
     title.setAttribute("class", "text");
-    title.style.marginBottom = "5px";
+    title.style.marginBottom = "10px";
     descFlex.append(title);
 
     /// Description
-    const desc = document.createElement("span");
+    const desc = document.createElement("div");
     desc.innerText = computer.description;
     desc.setAttribute("class", "desc");
-    desc.style.marginBottom = "5px";
+    desc.style.marginBottom = "10px";
     descFlex.append(desc);
 
     /// Price
     const price = document.createElement("span");
-    price.innerText = `Price:  ${format(computer.price)}`;
+    price.innerText = `${format(computer.price)}`;
     price.setAttribute("class", "text");
-    price.style.marginBottom = "5px";
+    price.style.marginBottom = "10px";
     descFlex.append(price);
 
     /// Buy button
@@ -69,7 +75,7 @@ async function displayComputers() {
     const specsLabel = document.createElement("label");
     specsLabel.innerText = "Specs";
     specsLabel.style.textAlign = "left";
-    specsLabel.style.marginBottom = "10px";
+    specsLabel.style.marginBottom = "5px";
     specsLabel.setAttribute("for", "specs");
     specsLabel.setAttribute("class", "text");
 
@@ -82,6 +88,7 @@ async function displayComputers() {
     specsFlex.append(specsLabel);
     specsFlex.append(ul);
 
+    // Adding all flexboxes to the flex row
     flexRow.append(imgFlex);
     flexRow.append(descFlex);
     flexRow.append(specsFlex);
