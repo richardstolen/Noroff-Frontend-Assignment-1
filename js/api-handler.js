@@ -12,7 +12,6 @@ async function getComputers() {
 }
 
 async function getImage(id) {
-  let result;
   try {
     const response = await fetch(
       `https://hickory-quilled-actress.glitch.me/assets/images/${id}.png`
@@ -28,7 +27,6 @@ async function getImage(id) {
   } catch (error) {
     console.log("Something went wrong", error);
   }
-  return result;
 }
 
 async function initializeShop() {
