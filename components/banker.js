@@ -89,13 +89,20 @@ function addToLoan(num) {
  * @param {int} num
  * @returns
  */
-function payLoan(num) {
+function payLoan(salary) {
   let loan = parseInt(getLoan());
   let wallet = parseInt(Wallet.getWallet());
   let newLoan = 0;
-  if (num != null) {
+  if (salary != null) {
     // Pay down loan when working
-    newLoan = loan - num;
+    if (loan - (salary / 100) * 10 >= 0) {
+      newLoan = loan - (salary / 100) * 10;
+      Wallet.setWallet((salary / 100) * 90 + wallet);
+    } else {
+      newLoan = 0;
+      const newWallet = salary - loan;
+      Wallet.setWallet(newWallet + wallet);
+    }
   } else if (wallet < loan) {
     // If wallet is less than the loan, pay down all you have
     newLoan = loan - wallet;
@@ -105,7 +112,7 @@ function payLoan(num) {
     let newWallet = wallet - loan;
     Wallet.setWallet(newWallet);
   }
-  return storage.setItem("loan", newLoan);
+  storage.setItem("loan", newLoan);
 }
 
 // Exporting --------------

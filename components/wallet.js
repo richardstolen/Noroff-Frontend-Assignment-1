@@ -33,17 +33,12 @@ function setWallet(num) {
 function addToWallet() {
   let wallet = parseInt(getWallet());
   let loan = parseInt(Bank.getLoan());
-  let newWallet = 0;
   if (loan != 0) {
     // Pay 10 % of salary to loan
-    Bank.payLoan((salary / 100) * 10);
-
-    // Add 90 % of salary to wallet
-    newWallet = wallet + (salary / 100) * 90;
+    Bank.payLoan(salary);
   } else {
-    newWallet = wallet + salary;
+    setWallet(wallet + salary);
   }
-  return storage.setItem("wallet", newWallet);
 }
 
 /**
