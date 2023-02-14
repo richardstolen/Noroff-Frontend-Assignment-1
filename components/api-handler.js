@@ -1,3 +1,11 @@
+/**
+ * API Handler module
+ */
+
+/**
+ * Get all computers from the given API
+ * @returns computers as JSON
+ */
 async function getComputers() {
   try {
     const response = await fetch(
@@ -11,6 +19,11 @@ async function getComputers() {
   }
 }
 
+/**
+ * Function to get a image given the computer id
+ * @param {int} id
+ * @returns URL of image for given computer
+ */
 async function getImage(id) {
   try {
     const response = await fetch(
@@ -29,6 +42,9 @@ async function getImage(id) {
   }
 }
 
+/**
+ * Call API methods and save them in storage
+ */
 async function initializeShop() {
   const computers = await getComputers();
   const compImages = [];
@@ -40,6 +56,7 @@ async function initializeShop() {
   sessionStorage.setItem("images", JSON.stringify(compImages));
 }
 
+// Exporting
 const API = {
   getComputers,
   getImage,

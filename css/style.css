@@ -45,6 +45,7 @@ body {
   min-width: 250px;
   justify-content: space-between;
 }
+
 .button {
   margin-bottom: 5px;
   width: 105px;
@@ -81,11 +82,6 @@ body {
   font-weight: 100;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-}
-
-.active {
-  font-weight: bold;
-  color: #e8ce0c;
 }
 
 img {

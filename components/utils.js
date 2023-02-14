@@ -30,11 +30,14 @@ function format(num) {
 
 function buyComputer(computer) {
   if (Bank.getBalance() < computer.price) {
+    // If balance is lower than price of computer
     alert("You can't afford this computer!");
   } else if (computer.stock < 1) {
+    // If computer is out of stock
     alert("Out of stock");
     return 0;
   } else {
+    // Buy PC
     computer.stock -= 1;
     Bank.subtractFromBalance(computer.price);
     alert(`Congratulations, you just bought a ${computer.title}`);
@@ -42,6 +45,7 @@ function buyComputer(computer) {
   }
 }
 
+// Exporting
 const Util = {
   initializeStorage,
   format,

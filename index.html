@@ -8,22 +8,26 @@
     <link rel="stylesheet" href="./css/style.css" />
     <script type="module" src="js/bankPage.js"></script>
     <script type="module" src="./components/nav-bar.js"></script>
-    <title>Title</title>
+    <title>Bank</title>
   </head>
   <body>
     <div class="flexbox-container">
+      <!-- Navigation bar -->
       <nav-bar active="Bank"></nav-bar>
 
+      <!-- Balance info -->
       <div class="flex-item">
         <div class="text">Balance</div>
         <div class="text" id="balance"></div>
       </div>
 
+      <!-- Loan info -->
       <div class="flex-item">
         <div class="text" id="loanText">Loan</div>
         <div class="text" id="loan"></div>
       </div>
 
+      <!-- Get a loan button -->
       <button id="getLoan" class="button" style="margin: 50px">
         Get a loan
       </button>

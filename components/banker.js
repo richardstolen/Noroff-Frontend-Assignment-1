@@ -1,5 +1,10 @@
 import Wallet from "./wallet.js";
 
+/**
+ * Banker module
+ * Handling balance and loan
+ */
+
 // Using sessionStorage for easier testing
 const storage = sessionStorage;
 
@@ -53,7 +58,7 @@ function setBalance(num) {
  * @returns loan amount
  */
 function getLoan() {
-  return sessionStorage.getItem("loan");
+  return storage.getItem("loan");
 }
 
 /**
@@ -61,7 +66,7 @@ function getLoan() {
  * @returns bool
  */
 function loanExists() {
-  let loan = sessionStorage.getItem("loan");
+  let loan = storage.getItem("loan");
   if (loan == 0) {
     return false;
   } else {
@@ -74,9 +79,9 @@ function loanExists() {
  * @param {int} num
  */
 function addToLoan(num) {
-  let loan = parseInt(getLoan());
-  let newLoan = loan + parseInt(num);
-  sessionStorage.setItem("loan", newLoan);
+  let currentLoan = parseInt(getLoan());
+  let newLoan = currentLoan + parseInt(num);
+  storage.setItem("loan", newLoan);
 }
 
 /**
@@ -100,7 +105,7 @@ function payLoan(num) {
     let newWallet = wallet - loan;
     Wallet.setWallet(newWallet);
   }
-  return sessionStorage.setItem("loan", newLoan);
+  return storage.setItem("loan", newLoan);
 }
 
 // Exporting --------------

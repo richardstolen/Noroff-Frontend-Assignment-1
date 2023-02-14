@@ -1,11 +1,11 @@
 import Bank from "../components/banker.js";
 
-// Using sessionStorage for easier testing, can easily swap to localStorage
-const storage = sessionStorage;
-
 /**
- * Pay/work methods - called it wallet
+ * Wallet module
  */
+
+// Using sessionStorage for easier testing
+const storage = sessionStorage;
 
 /**
  * Get wallet
@@ -24,7 +24,8 @@ function setWallet(num) {
 }
 
 /**
- * Increases wallet with number
+ * Work. Increases wallet with a set pay.
+ * In this case 100 NOK
  * @param {int} num
  */
 function addToWallet() {
@@ -50,6 +51,7 @@ function depositMoney() {
   Bank.addToBalance(wallet);
 }
 
+// Exporting
 const Wallet = {
   getWallet,
   setWallet,

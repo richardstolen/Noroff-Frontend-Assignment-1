@@ -8,18 +8,24 @@
     <link rel="stylesheet" href="./css/style.css" />
     <script type="module" src="js/shopPage.js"></script>
     <script type="module" src="./components/nav-bar.js"></script>
-    <title>Document</title>
+    <title>Shop</title>
   </head>
   <body>
     <div class="flexbox-container">
+      <!-- Navigation bar -->
       <nav-bar active="Shop"></nav-bar>
+
+      <!-- Laptops label -->
       <div class="flex-column">
         <label class="text" for="computers">Laptops</label>
       </div>
 
+      <!-- List of laptops -->
       <div class="flex-column">
         <div class="flex-column" id="computers"></div>
       </div>
+
+      <!-- Loading text -->
       <div id="loading" class="text"></div>
     </div>
   </body>

@@ -60,3 +60,8 @@
   transition: all 0.2s ease-in-out;
   opacity: 1;
 }
+
+.active {
+  font-weight: bold;
+  color: #e8ce0c;
+}
