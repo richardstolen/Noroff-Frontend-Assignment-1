@@ -62,6 +62,7 @@ async function displayComputers() {
     imgFlex.setAttribute("class", "flex-column");
     const img = document.createElement("img");
     img.setAttribute("src", computerImages[1][computer.id]);
+    img.setAttribute("alt", computer.title);
     imgFlex.append(img);
 
     /**
