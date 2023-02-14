@@ -1,6 +1,6 @@
 // Initialize storage with 0 values
 
-export async function initializeStorage() {
+export function initializeStorage() {
   sessionStorage.setItem("balance", 0);
   sessionStorage.setItem("loan", 0);
   sessionStorage.setItem("wallet", 0);

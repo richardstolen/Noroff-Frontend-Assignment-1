@@ -56,5 +56,6 @@ export default class extends HTMLElement {
   }
 }
 
+// Creating a custom nav-bar element
 import NavBar from "/components/nav-bar.js";
 customElements.define("nav-bar", NavBar);
