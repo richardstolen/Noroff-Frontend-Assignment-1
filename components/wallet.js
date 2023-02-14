@@ -6,6 +6,8 @@ import Bank from "../components/banker.js";
 
 // Using sessionStorage for easier testing
 const storage = sessionStorage;
+// Salary, set to 100 NOK
+const salary = 100;
 
 /**
  * Get wallet
@@ -33,12 +35,14 @@ function addToWallet() {
   let loan = parseInt(Bank.getLoan());
   let newWallet = 0;
   if (loan != 0) {
-    Bank.payLoan(10);
-    newWallet = wallet + 90;
-  } else {
-    newWallet = wallet + 100;
-  }
+    // Pay 10 % of salary to loan
+    Bank.payLoan((salary / 100) * 19);
 
+    // Add 90 % of salary to wallet
+    newWallet = wallet + (salary / 100) * 90;
+  } else {
+    newWallet = wallet + salary;
+  }
   return storage.setItem("wallet", newWallet);
 }
 
