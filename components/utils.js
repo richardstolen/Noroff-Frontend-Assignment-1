@@ -1,3 +1,5 @@
+import Bank from "./banker.js";
+
 /**
  * Helper module
  */
@@ -26,9 +28,24 @@ function format(num) {
   return NOK.format(num);
 }
 
+function buyComputer(computer) {
+  if (Bank.getBalance() < computer.price) {
+    alert("You can't afford this computer!");
+  } else if (computer.stock < 1) {
+    alert("Out of stock");
+    return 0;
+  } else {
+    computer.stock -= 1;
+    Bank.subtractFromBalance(computer.price);
+    alert(`Congratulations, you just bought a ${computer.title}`);
+    return computer.stock;
+  }
+}
+
 const Util = {
   initializeStorage,
   format,
+  buyComputer,
 };
 
 export default Util;

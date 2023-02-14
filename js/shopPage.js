@@ -1,5 +1,5 @@
 import API from "../components/api-handler.js";
-import { buyComputer, format } from "./helper.js";
+import Utils from "../components/utils.js";
 
 // Getting computers and images from session storage
 let computers = JSON.parse(sessionStorage.getItem("computers"));
@@ -58,7 +58,7 @@ async function displayComputers() {
 
     /// Price
     const price = document.createElement("span");
-    price.innerText = `${format(computer.price)}`;
+    price.innerText = `${Utils.format(computer.price)}`;
     price.setAttribute("class", "text");
     price.style.marginBottom = "10px";
     descFlex.append(price);
@@ -67,7 +67,7 @@ async function displayComputers() {
     const buyButton = document.createElement("button");
     buyButton.innerText = "Buy";
     buyButton.addEventListener("click", () => {
-      let stock = buyComputer(computer);
+      let stock = Utils.buyComputer(computer);
       computer.stock = stock;
       sessionStorage.setItem("computers", JSON.stringify(computers));
     });

@@ -2,19 +2,19 @@ import API from "../components/api-handler.js";
 import Bank from "../components/banker.js";
 import Utils from "../components/utils.js";
 
-// Divs
+// Divs and elements
 const balance = document.getElementById("balance");
 const loan = document.getElementById("loan");
 const loanText = document.getElementById("loanText");
 
 // Get loan button
 const getLoanButton = document.getElementById("getLoan");
-getLoanButton.addEventListener("click", addLoan);
+getLoanButton.addEventListener("click", getNewLoan);
 
 /**
- * -----------
+ * -------------------------------------
  * Page flow
- * -----------
+ * -------------------------------------
  */
 
 /**
@@ -34,9 +34,9 @@ if (Bank.getBalance() === null) {
 updatePage();
 
 /**
- * -----------
+ * ------------------------------------
  * Functions
- * -----------
+ * ------------------------------------
  */
 
 /**
@@ -65,7 +65,7 @@ function updatePage() {
  * When pressing get a loan this executes.
  * Handles adding a new loan.
  */
-function addLoan() {
+function getNewLoan() {
   let amount = prompt("How much loan do you want?", "0");
 
   if (amount === null || isNaN(amount)) {

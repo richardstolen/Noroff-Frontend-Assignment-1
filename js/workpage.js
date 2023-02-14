@@ -1,13 +1,6 @@
-import {
-  addToBalance,
-  addToWallet,
-  depositMoney,
-  format,
-  getWallet,
-  payLoan,
-  loanExists,
-  getLoan,
-} from "./helper.js";
+import Bank from "../components/banker.js";
+import Utils from "../components/utils.js";
+import Wallet from "../components/wallet.js";
 
 const wallet = document.getElementById("wallet");
 const loan = document.getElementById("loan");
@@ -17,29 +10,29 @@ const depositButton = document.getElementById("depositButton");
 const payLoanButton = document.getElementById("repayLoan");
 
 workButton.addEventListener("click", function () {
-  addToWallet();
+  Wallet.addToWallet();
   updatePage();
 });
 
 depositButton.addEventListener("click", function () {
-  depositMoney();
+  Wallet.depositMoney();
   updatePage();
 });
 
 payLoanButton.addEventListener("click", () => {
-  payLoan();
+  Bank.payLoan();
   updatePage();
 });
 
 function updatePage() {
   if (wallet != null) {
-    wallet.innerText = format(getWallet());
+    wallet.innerText = Utils.format(Wallet.getWallet());
   }
-  if (loanExists()) {
+  if (Bank.loanExists()) {
     loan.style.display = "block";
     loanText.style.display = "block";
     payLoanButton.style.visibility = "visible";
-    loan.innerText = format(getLoan());
+    loan.innerText = Utils.format(Bank.getLoan());
   } else {
     // If no loan hide text and repay loan button
     loan.style.display = "none";

@@ -1,4 +1,6 @@
-// Using sessionStorage for easier testing, can easily swap to localStorage
+import Wallet from "./wallet.js";
+
+// Using sessionStorage for easier testing
 const storage = sessionStorage;
 
 /**
@@ -84,7 +86,7 @@ function addToLoan(num) {
  */
 function payLoan(num) {
   let loan = parseInt(getLoan());
-  let wallet = parseInt(getWallet());
+  let wallet = parseInt(Wallet.getWallet());
   let newLoan = 0;
   if (num != null) {
     // Pay down loan when working
@@ -92,15 +94,16 @@ function payLoan(num) {
   } else if (wallet < loan) {
     // If wallet is less than the loan, pay down all you have
     newLoan = loan - wallet;
-    setWallet(0);
+    Wallet.setWallet(0);
   } else {
     // Pay down all of the loan (not changing newLoan from 0)
     let newWallet = wallet - loan;
-    setWallet(newWallet);
+    Wallet.setWallet(newWallet);
   }
   return sessionStorage.setItem("loan", newLoan);
 }
 
+// Exporting --------------
 const Bank = {
   getBalance,
   addToBalance,
