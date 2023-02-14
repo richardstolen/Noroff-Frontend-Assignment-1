@@ -7,14 +7,12 @@
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="shortcut icon" href="#" />
     <script type="module" src="js/work.js"></script>
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="./components/nav-bar.js"></script>
     <title>Document</title>
   </head>
   <body>
     <div class="flexbox-container">
-      <div class="flex-column" style="margin-bottom: 100px">
-        <nav-bar active="Work"></nav-bar>
-      </div>
+      <nav-bar active="Work"></nav-bar>
 
       <div class="flex-item">
         <div class="text">Wallet</div>
@@ -25,7 +23,14 @@
         <button class="button" id="workButton">Work</button>
         <button class="button" id="depositButton">Deposit</button>
       </div>
-      <button id="repayLoan" class="button">Repay loan</button>
+
+      <div class="flex-item">
+        <div class="text" id="loanText">Loan</div>
+        <div class="text" id="loan"></div>
+      </div>
+      <button id="repayLoan" class="button" style="margin-top: 20px">
+        Repay loan
+      </button>
     </div>
   </body>
 </html>

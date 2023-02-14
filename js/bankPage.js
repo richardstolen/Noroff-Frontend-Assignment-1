@@ -9,21 +9,18 @@ import {
   format,
 } from "./helper.js";
 
-import API from "./api-handler.js";
+import API from "../components/api-handler.js";
 
 const balance = document.getElementById("balance");
 const loan = document.getElementById("loan");
 const loanText = document.getElementById("loanText");
 const getLoanButton = document.getElementById("getLoan");
 
-const buttonDiv = document.getElementById("buttons");
-
 if (getBalance() == null) {
   initializeStorage();
-  API.initializeShop();
+  updateBalanceAndLoan();
+  await API.initializeShop();
 }
-
-updateBalanceAndLoan();
 
 function updateBalanceAndLoan() {
   if (balance != null) {
@@ -43,6 +40,7 @@ function updateBalanceAndLoan() {
     loanText.style.display = "none";
   }
 }
+updateBalanceAndLoan();
 
 getLoanButton.addEventListener("click", addLoan);
 
@@ -61,7 +59,3 @@ function addLoan() {
     updateBalanceAndLoan();
   }
 }
-
-function addLoanButton() {}
-
-function removeLoanButton() {}

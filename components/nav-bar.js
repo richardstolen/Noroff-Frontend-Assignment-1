@@ -31,6 +31,7 @@ export default class extends HTMLElement {
   #createHTML() {
     const wrapper = document.createElement("div");
     const content = `
+        <div class="flex-column" style="margin-bottom: 80px">
         <nav class="navMenu">
         
         <a href="index.html" id="Bank">Bank</a>
@@ -39,6 +40,7 @@ export default class extends HTMLElement {
         <div class="dot"></div>
         
         </nav>
+        </div>
       `;
 
     wrapper.insertAdjacentHTML("beforeend", content);
@@ -53,3 +55,6 @@ export default class extends HTMLElement {
     return wrapper;
   }
 }
+
+import NavBar from "/components/nav-bar.js";
+customElements.define("nav-bar", NavBar);

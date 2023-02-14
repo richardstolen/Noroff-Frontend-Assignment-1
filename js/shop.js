@@ -1,20 +1,29 @@
-import API from "./api-handler.js";
+import API from "../components/api-handler.js";
 import { buyComputer, format } from "./helper.js";
 
-const computers = JSON.parse(sessionStorage.getItem("computers"));
-const compImages = JSON.parse(sessionStorage.getItem("images"));
+// Getting computers and images from session storage
+let computers = JSON.parse(sessionStorage.getItem("computers"));
+let computerImages = JSON.parse(sessionStorage.getItem("images"));
+const loading = document.getElementById("loading");
 
-if (computers === null) {
+// Initializing the shop if it hasn't been done in the bank page
+if (computers == null) {
+  loading.innerText = "Loading...";
+
   await API.initializeShop();
+
   computers = JSON.parse(sessionStorage.getItem("computers"));
-  compImages = JSON.parse(sessionStorage.getItem("images"));
+  computerImages = JSON.parse(sessionStorage.getItem("images"));
 }
 
+// Linking computer id to its image
 for (const c of computers) {
-  compImages[c.id] = JSON.parse(sessionStorage.getItem("images"));
+  computerImages[c.id] = JSON.parse(sessionStorage.getItem("images"));
 }
 
 async function displayComputers() {
+  loading.style.visibility = "hidden";
+
   const div = document.getElementById("computers");
 
   for (const computer of computers) {
@@ -25,7 +34,7 @@ async function displayComputers() {
     const imgFlex = document.createElement("div");
     imgFlex.setAttribute("class", "flex-column");
     const img = document.createElement("img");
-    img.setAttribute("src", compImages[1][computer.id]);
+    img.setAttribute("src", computerImages[1][computer.id]);
     imgFlex.append(img);
 
     // Description FLEX
@@ -58,7 +67,9 @@ async function displayComputers() {
     const buyButton = document.createElement("button");
     buyButton.innerText = "Buy";
     buyButton.addEventListener("click", () => {
-      buyComputer(computer.price, computer.title);
+      let stock = buyComputer(computer);
+      computer.stock = stock;
+      sessionStorage.setItem("computers", JSON.stringify(computers));
     });
     buyButton.setAttribute("class", "button");
     descFlex.append(buyButton);

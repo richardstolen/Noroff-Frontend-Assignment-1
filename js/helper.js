@@ -1,6 +1,6 @@
 // Initialize storage with 0 values
 
-export function initializeStorage() {
+export async function initializeStorage() {
   sessionStorage.setItem("balance", 0);
   sessionStorage.setItem("loan", 0);
   sessionStorage.setItem("wallet", 0);
@@ -97,12 +97,17 @@ export function depositMoney() {
 
 // Shop
 
-export function buyComputer(price, title) {
-  if (getBalance() < price) {
+export function buyComputer(computer) {
+  if (getBalance() < computer.price) {
     alert("You can't afford this computer!");
+  } else if (computer.stock < 1) {
+    alert("Out of stock");
+    return 0;
   } else {
-    subtractFromBalance(price);
-    alert(`Congratulations, you just bought a ${title}`);
+    computer.stock -= 1;
+    subtractFromBalance(computer.price);
+    alert(`Congratulations, you just bought a ${computer.title}`);
+    return computer.stock;
   }
 }
 

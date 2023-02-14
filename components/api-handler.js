@@ -23,7 +23,6 @@ async function getImage(id) {
       );
       return response.url;
     }
-    console.log(response.url);
     return response.url;
   } catch (error) {
     console.log("Something went wrong", error);

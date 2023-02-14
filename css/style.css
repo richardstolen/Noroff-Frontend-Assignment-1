@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+body {
+  background: #272727;
+  font-family: "Montserrat", sans-serif;
+}
+
 /*
   Flex box
 */
@@ -86,13 +91,4 @@
 img {
   width: 150px;
   height: auto;
-}
-
-/*
- Nav bar imported from:https://codepen.io/WhisnuYs/pen/XWdpdGP
-*/
-
-body {
-  background: #272727;
-  font-family: "Montserrat", sans-serif;
 }
