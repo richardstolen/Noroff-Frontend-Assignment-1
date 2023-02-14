@@ -23,11 +23,12 @@ To run on local computer download and install:
 
 This project has been deployed with [Netlify](https://www.netlify.com/). Webpage link:
 
-    https://richardstolen-frontend-1.netlify.app/shop.html
+    https://richardstolen-frontend-1.netlify.app/
 
 ## Notes
 
-I wanted to try out session storage so i decided to go with a multi-page application, even though in this small assignment a single page would have been more than sufficient. I also decided to load all the computers as a list instead of using a drop down menu. 
+- I wanted to try out session storage so i decided to go with a multi-page application, even though in this small assignment a single page would have been more than sufficient. 
+- I also decided to load all the computers as a list instead of using a drop down menu. 
 
 ## Maintainers
 
