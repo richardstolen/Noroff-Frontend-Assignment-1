@@ -17,7 +17,7 @@ To run on local computer download and install:
 
 ### Local
 
-1. Clone, fork or download the repository as a zip and run the project using the live server extension in VS Code. 
+1. Fork or download the repository as a zip and run the project using the live server extension in VS Code. 
 
 ### Visit deployed page
 
