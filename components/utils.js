@@ -28,6 +28,9 @@ function format(num) {
   return NOK.format(num);
 }
 
+/**
+ * Buy computer function
+ */
 function buyComputer(computer) {
   if (Bank.getBalance() < computer.price) {
     // If balance is lower than price of computer
